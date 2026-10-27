@@ -1,0 +1,1233 @@
+	<!doctype html>
+	<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="theme-color" content="#241332">
+		<meta name="description" content="A heartfelt monthsary letter, made with love.">
+		<title>For My Love | Happy Monthsary</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+		<style>
+			:root {
+				color-scheme: light;
+				--ink: #392b43;
+				--muted: #82718d;
+				--plum: #6d4b82;
+				--lilac: #cab5dc;
+				--paper: #fffdfb;
+				--silver: #e7deeb;
+			}
+
+			* { box-sizing: border-box; }
+
+			body {
+				min-width: 320px;
+				min-height: 100vh;
+				margin: 0;
+				color: var(--ink);
+				background-color: #d7c4e7;
+				background-image:
+					radial-gradient(ellipse at 50% 54%, rgb(168 116 198 / 18%) 0%, rgb(201 166 221 / 11%) 24%, transparent 43rem),
+					radial-gradient(ellipse at 50% 44%, rgb(255 255 255 / 60%), transparent 31rem),
+					radial-gradient(ellipse at 0% 50%, rgb(147 101 183 / 25%), transparent 34rem),
+					radial-gradient(ellipse at 100% 83%, rgb(169 119 192 / 24%), transparent 40rem),
+					radial-gradient(ellipse at 50% 110%, rgb(255 250 255 / 45%), transparent 35rem),
+					linear-gradient(90deg, rgb(255 255 255 / 11%), transparent 18%, transparent 82%, rgb(100 61 121 / 7%)),
+					repeating-linear-gradient(112deg, rgb(80 45 102 / 2%) 0 1px, transparent 1px 6px),
+					repeating-linear-gradient(23deg, rgb(255 255 255 / 10%) 0 1px, transparent 1px 8px),
+					linear-gradient(135deg, #ddc9ec 0%, #eadcf3 48%, #d8c4e8 100%);
+				background-attachment: fixed;
+				font-family: "DM Sans", sans-serif;
+				overflow-x: hidden;
+			}
+
+			body::before,
+			body::after {
+				position: fixed;
+				z-index: 0;
+				color: rgb(101 66 124 / 62%);
+				pointer-events: none;
+				content: "✦";
+				animation: shimmer 4s ease-in-out infinite alternate;
+			}
+
+			body::before { top: 12%; left: 8%; font-size: 15px; }
+			body::after { right: 9%; bottom: 13%; font-size: 21px; animation-delay: 1.3s; }
+
+			.scene {
+				position: relative;
+				z-index: 1;
+				min-height: 100vh;
+				padding: 48px 24px 64px;
+				isolation: isolate;
+			}
+
+			.scene::before,
+			.scene::after {
+				position: fixed;
+				z-index: -1;
+				color: rgb(232 215 245 / 16%);
+				font-family: "Cormorant Garamond", serif;
+				pointer-events: none;
+			}
+
+			.scene::before { top: 2%; right: 3%; color: rgb(113 72 133 / 9%); content: "❀"; font-size: 170px; transform: rotate(14deg); }
+			.scene::after { bottom: 1%; left: 2%; color: rgb(113 72 133 / 8%); content: "❧"; font-size: 145px; }
+
+			.letter-reveal {
+				display: grid;
+				grid-template-rows: 0fr;
+				overflow: hidden;
+				transition: grid-template-rows 750ms cubic-bezier(.2,.7,.2,1);
+			}
+
+			.letter {
+				position: relative;
+				min-height: 0;
+				width: min(100%, 940px);
+				margin: 0 auto;
+				padding: 58px 76px 50px;
+				overflow: hidden;
+				background:
+					radial-gradient(ellipse at 100% 0%, rgb(228 215 236 / 37%), transparent 26rem),
+					repeating-linear-gradient(0deg, transparent 0, transparent 31px, rgb(118 92 133 / 3%) 32px),
+					var(--paper);
+				border: 1px solid rgb(255 255 255 / 82%);
+				border-radius: 3px;
+				box-shadow: 0 34px 100px rgb(9 4 16 / 42%), 0 4px 14px rgb(14 6 22 / 20%);
+				opacity: 0;
+				visibility: hidden;
+				transform: translateY(-16px) scale(.99);
+				transition: opacity 350ms ease, transform 600ms cubic-bezier(.2,.7,.2,1), visibility 0s 750ms;
+				animation: none;
+			}
+
+			.scene.is-open .letter-reveal { grid-template-rows: 1fr; }
+			.scene.is-open .letter {
+				opacity: 1;
+				visibility: visible;
+				transform: translateY(0) scale(1);
+				transition: opacity 500ms 220ms ease, transform 650ms 180ms cubic-bezier(.2,.7,.2,1), visibility 0s;
+				animation: arrive 900ms 160ms cubic-bezier(.2,.7,.2,1) both;
+			}
+
+			.letter::before {
+				position: absolute;
+				inset: 12px;
+				border: 1px solid #e8dfeb;
+				content: "";
+				pointer-events: none;
+			}
+
+			.letter::after {
+				position: absolute;
+				top: 23px;
+				right: 24px;
+				width: 52px;
+				height: 52px;
+				border-top: 1px solid #c9b8d2;
+				border-right: 1px solid #c9b8d2;
+				content: "";
+				opacity: .8;
+			}
+
+			.topline {
+				position: relative;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: 20px;
+				padding-bottom: 15px;
+				border-bottom: 1px solid var(--silver);
+				color: var(--muted);
+				font-size: 10px;
+				font-weight: 600;
+				letter-spacing: 2.2px;
+				text-transform: uppercase;
+			}
+
+			.topline span:last-child { color: #a68bb8; }
+
+			.heading {
+				position: relative;
+				padding: 36px 0 28px;
+				text-align: center;
+			}
+
+			.heading::before {
+				position: absolute;
+				top: 5px;
+				left: 50%;
+				color: #b69bc6;
+				content: "✧  ❀  ✧";
+				font-size: 15px;
+				transform: translateX(-50%);
+			}
+
+			.eyebrow {
+				margin: 0 0 8px;
+				color: #9c81ae;
+				font-size: 10px;
+				font-weight: 600;
+				letter-spacing: 3px;
+				text-transform: uppercase;
+			}
+
+			h1 {
+				margin: 0;
+				color: #4b315e;
+				font-family: "Cormorant Garamond", serif;
+				font-size: clamp(42px, 7vw, 66px);
+				font-weight: 500;
+				line-height: .98;
+			}
+
+			.subtitle {
+				margin: 12px 0 0;
+				color: #9a7eaa;
+				font-family: "Caveat", cursive;
+				font-size: 25px;
+			}
+
+			.letter-layout {
+				display: grid;
+				grid-template-columns: minmax(0, 1fr) 225px;
+				align-items: start;
+				gap: 34px;
+			}
+
+			.message {
+				min-width: 0;
+				font-family: "Cormorant Garamond", serif;
+				font-size: 20px;
+				line-height: 1.58;
+				text-align: justify;
+			}
+
+			.salutation {
+				margin: 0 0 12px;
+				color: #765889;
+				font-family: "Caveat", cursive;
+				font-size: 31px;
+				line-height: 1.2;
+			}
+
+			.message p { margin: 0 0 17px; }
+
+			.promise {
+				margin: 25px 0 !important;
+				padding: 3px 0 3px 18px;
+				color: #654876;
+				border-left: 2px solid #c4a8d7;
+				font-size: 22px;
+				font-style: italic;
+			}
+
+			.music-player {
+				display: grid;
+				justify-items: start;
+				gap: 7px;
+				margin: 8px 0 22px;
+				font-family: "DM Sans", sans-serif;
+			}
+
+			.music-button {
+				display: inline-flex;
+				align-items: center;
+				gap: 9px;
+				padding: 10px 15px;
+				color: #654876;
+				background: #f8f2fb;
+				border: 1px solid #ddcce7;
+				border-radius: 999px;
+				font: inherit;
+				font-size: 13px;
+				cursor: pointer;
+				transition: background 180ms ease, transform 180ms ease;
+			}
+
+			.music-button:hover { background: #f0e5f6; transform: translateY(-1px); }
+			.music-button:focus-visible { outline: 2px solid #8969a0; outline-offset: 3px; }
+			.music-button:disabled { cursor: wait; opacity: .7; }
+			.music-icon { color: #8969a0; font-size: 17px; }
+			.music-status { color: #90799d; font-size: 11px; }
+
+			.closing-copy { margin-top: 22px !important; }
+
+			.signoff {
+				margin-top: 23px !important;
+				color: #725585;
+				font-family: "Caveat", cursive;
+				font-size: 27px;
+				line-height: 1.35;
+			}
+
+			.bouquet {
+				position: sticky;
+				top: 24px;
+				margin-top: 31px;
+				padding: 7px 7px 12px;
+				background: #fff;
+				border: 1px solid #e4dbe8;
+				box-shadow: 0 12px 30px rgb(70 43 84 / 13%);
+				transform: rotate(2deg);
+			}
+
+			.bouquet img {
+				display: block;
+				width: 100%;
+				height: 288px;
+				object-fit: cover;
+				object-position: 52% center;
+				filter: grayscale(.68) sepia(.32) hue-rotate(225deg) saturate(1.3);
+				background: linear-gradient(145deg, #d8c6e4, #87709b);
+			}
+
+			.bouquet figcaption {
+				padding-top: 10px;
+				color: #90799d;
+				font-family: "Caveat", cursive;
+				font-size: 20px;
+				text-align: center;
+			}
+
+			.date-line {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 13px;
+				margin: 26px 0 0;
+				color: #887396;
+				font-size: 10px;
+				font-weight: 600;
+				letter-spacing: 1.8px;
+				text-transform: uppercase;
+			}
+
+			.date-line::before,
+			.date-line::after {
+				width: 42px;
+				height: 1px;
+				background: #d7c8df;
+				content: "";
+			}
+
+			.envelope-stage {
+				position: relative;
+				display: grid;
+				justify-items: center;
+				align-content: center;
+				min-height: min(100vh, 900px);
+				min-height: min(100svh, 900px);
+				padding: 48px 12px;
+				overflow-anchor: none;
+				perspective: 1050px;
+				perspective-origin: 50% 45%;
+				transform-style: preserve-3d;
+				text-align: center;
+				transition: min-height 720ms cubic-bezier(.2,.7,.2,1), padding 720ms cubic-bezier(.2,.7,.2,1);
+			}
+
+			.scene.is-open .envelope-stage { min-height: 490px; padding-block: 30px; }
+
+			.envelope-stage::before,
+			.envelope-stage::after {
+				position: absolute;
+				z-index: 1;
+				top: 42%;
+				color: rgb(125 83 145 / 34%);
+				font-family: "Cormorant Garamond", serif;
+				font-size: 31px;
+				pointer-events: none;
+				text-shadow: 0 1px 0 rgb(255 255 255 / 72%), 0 0 18px rgb(185 137 207 / 32%);
+			}
+
+			.envelope-stage::before { left: max(18px, calc(50% - 355px)); content: "✧"; transform: translateY(-50%) rotate(-14deg); }
+			.envelope-stage::after { top: 62%; right: max(18px, calc(50% - 355px)); content: "✦"; transform: translateY(-50%) rotate(14deg); }
+
+			.envelope-heading {
+				margin: 0 0 24px;
+				color: #513367;
+				font-family: "Cormorant Garamond", serif;
+				font-size: 30px;
+				font-weight: 500;
+				text-shadow: 0 2px 18px rgb(255 255 255 / 74%);
+				transition: opacity 220ms ease, transform 320ms ease, visibility 0s 220ms;
+			}
+
+			.scene.is-open .envelope-heading { opacity: 0; visibility: hidden; transform: translateY(-8px); }
+
+			.envelope-icon {
+				display: inline-block;
+				margin-right: 10px;
+				color: #80579b;
+				font-family: "DM Sans", sans-serif;
+				font-size: 23px;
+				vertical-align: 2px;
+			}
+
+			.envelope {
+				position: relative;
+				z-index: 0;
+				display: block;
+				width: min(560px, 92vw);
+				aspect-ratio: 1.55;
+				margin: 0 auto;
+				padding: 0;
+				background:
+					radial-gradient(ellipse at 24% 8%, rgb(255 255 255 / 18%), transparent 44%),
+					repeating-linear-gradient(118deg, rgb(255 255 255 / 3%) 0, rgb(255 255 255 / 3%) 1px, transparent 1px, transparent 6px),
+					linear-gradient(145deg, #684b70 0%, #49324f 46%, #302039 100%);
+				border: 1px solid #e6c77e;
+				border-radius: 7px;
+				box-shadow: 0 24px 40px rgb(45 18 62 / 28%), 0 0 0 3px rgb(230 199 126 / 22%), 0 4px 10px rgb(255 255 255 / 27%) inset, 0 -8px 14px rgb(40 12 61 / 27%) inset;
+				cursor: pointer;
+				perspective: 700px;
+				isolation: isolate;
+				transform-style: preserve-3d;
+				--letter-lift: 105px;
+				transform: rotateX(9deg) rotateY(-6deg) rotateZ(-1deg);
+				transition: transform 420ms cubic-bezier(.2,.7,.2,1), box-shadow 420ms ease;
+			}
+
+			.envelope:hover { transform: translateY(-7px) rotateX(2deg) rotateY(-2deg) rotateZ(0) translateZ(18px); box-shadow: 0 30px 42px rgb(12 5 19 / 40%), 0 4px 8px rgb(255 255 255 / 36%) inset, 0 -5px 10px rgb(101 72 120 / 15%) inset; }
+			.envelope:focus-visible { outline: 3px solid #a68bb8; outline-offset: 6px; }
+			.envelope:active { transform: translateY(-2px) rotateX(2deg) rotateY(0) translateZ(10px); }
+			.envelope.is-open { box-shadow: 0 34px 52px rgb(45 18 62 / 32%), 0 0 34px rgb(183 118 218 / 45%), 0 0 0 3px rgb(230 199 126 / 34%), 0 4px 10px rgb(255 255 255 / 27%) inset; }
+
+			.envelope-aura {
+				position: absolute;
+				z-index: 0;
+				inset: -42% -18%;
+				background: radial-gradient(ellipse, rgb(223 176 242 / 42%) 0%, rgb(191 135 220 / 22%) 34%, transparent 72%);
+				filter: blur(13px);
+				opacity: 0;
+				transform: translateZ(-18px) scale(.72);
+				transition: opacity 450ms ease, transform 750ms cubic-bezier(.2,.7,.2,1);
+				pointer-events: none;
+			}
+
+			.envelope.is-open .envelope-aura { opacity: 1; transform: translateZ(-18px) scale(1); }
+
+			.envelope::after {
+				position: absolute;
+				z-index: -1;
+				right: 4px;
+				bottom: -10px;
+				left: 4px;
+				height: 13px;
+				background: linear-gradient(180deg, #612493, #341047);
+				border: 1px solid rgb(230 199 126 / 52%);
+				border-top: 0;
+				border-radius: 0 0 7px 7px;
+				box-shadow: 0 10px 13px rgb(10 4 16 / 24%);
+				content: "";
+				transform: translateZ(-7px);
+				pointer-events: none;
+			}
+
+			.envelope::before {
+				position: absolute;
+				z-index: 3;
+				inset: 0;
+				background:
+					radial-gradient(ellipse at 50% 105%, rgb(255 255 255 / 12%), transparent 60%),
+					linear-gradient(34deg, transparent 49.5%, rgb(223 192 127 / 64%) 49.8%, transparent 50.1%),
+					linear-gradient(-34deg, transparent 49.5%, rgb(223 192 127 / 64%) 49.8%, transparent 50.1%),
+					linear-gradient(145deg, #604569, #382540);
+				clip-path: polygon(0 0, 50% 58%, 100% 0, 100% 100%, 0 100%);
+				filter: drop-shadow(0 -1px 1px rgb(255 255 255 / 55%));
+				content: "";
+				transform: translateZ(1px);
+				pointer-events: none;
+			}
+
+			.envelope-frame {
+				position: absolute;
+				z-index: 3;
+				inset: 9px;
+				border: 1px solid rgb(221 191 131 / 58%);
+				border-radius: 2px;
+				box-shadow: 0 0 0 1px rgb(76 31 104 / 30%);
+				transform: translateZ(3px);
+				pointer-events: none;
+			}
+
+			.envelope-frame::before {
+				position: absolute;
+				top: 7px;
+				left: 50%;
+				width: 34%;
+				height: 34%;
+				border-top: 1px solid rgb(235 207 151 / 72%);
+				border-right: 1px solid rgb(235 207 151 / 72%);
+				content: "";
+				transform: translateX(-50%) rotate(135deg);
+			}
+
+			.envelope-frame::after {
+				position: absolute;
+				inset: 5px;
+				border: 1px solid rgb(238 217 169 / 36%);
+				content: "";
+				pointer-events: none;
+			}
+
+			.envelope-sprig {
+				position: absolute;
+				z-index: 6;
+				color: #cbb0dc;
+				font-family: "Cormorant Garamond", serif;
+				font-size: 30px;
+				line-height: 1;
+				text-shadow: 0 1px 3px rgb(34 18 42 / 42%);
+				pointer-events: none;
+			}
+
+			.sprig-upper { top: 24%; left: 16px; transform: rotate(-28deg); }
+			.sprig-lower { right: 16px; bottom: 14%; transform: rotate(152deg); }
+
+			.envelope-tag {
+				position: absolute;
+				z-index: 7;
+				top: 38%;
+				right: -24px;
+				display: grid;
+				width: 84px;
+				height: 116px;
+				align-content: center;
+				justify-items: center;
+				gap: 5px;
+				padding: 20px 8px 10px;
+				color: #553969;
+				background: linear-gradient(145deg, #fffaf0, #eadbc1);
+				border: 1px solid #c9a96f;
+				box-shadow: 0 6px 12px rgb(37 20 46 / 28%), 0 1px 2px rgb(255 255 255 / 90%) inset;
+				clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+				font-family: "Cormorant Garamond", serif;
+				transform: translateZ(8px) rotate(5deg);
+			}
+
+			.envelope-tag::before {
+				position: absolute;
+				top: -28px;
+				left: 15px;
+				width: 1px;
+				height: 42px;
+				background: linear-gradient(#e9d39f, #a9854e);
+				content: "";
+				transform: rotate(-17deg);
+				transform-origin: bottom;
+			}
+
+			.tag-eyelet {
+				position: absolute;
+				top: 8px;
+				left: calc(50% - 4px);
+				width: 8px;
+				height: 8px;
+				background: #9c7d4d;
+				border: 1px solid #f4e3b5;
+				border-radius: 50%;
+			}
+
+			.tag-label { color: #947a9d; font-family: "DM Sans", sans-serif; font-size: 7px; font-weight: 600; letter-spacing: 1.2px; }
+			.tag-name { max-width: 100%; font-family: "Caveat", cursive; font-size: 16px; line-height: 1; text-align: center; overflow-wrap: anywhere; }
+			.tag-flower { color: #a68ab8; font-size: 15px; line-height: 1; }
+
+			.envelope-flap {
+				position: absolute;
+				z-index: 4;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 64%;
+				background: linear-gradient(155deg, #75567a 0%, #513958 48%, #35243e 100%);
+				filter: drop-shadow(0 3px 4px rgb(38 12 58 / 34%));
+				clip-path: polygon(0 0, 100% 0, 50% 100%);
+				transform-origin: top;
+				transform: translateZ(5px);
+				transform-style: preserve-3d;
+				backface-visibility: hidden;
+				transition: transform 680ms cubic-bezier(.18,.75,.22,1), z-index 0s 340ms;
+			}
+
+			.flap-inscription {
+				position: absolute;
+				z-index: 1;
+				top: 15%;
+				left: 50%;
+				display: grid;
+				justify-items: center;
+				gap: 5px;
+				width: 70%;
+				color: #ead9b7;
+				text-shadow: 0 1px 3px rgb(26 15 31 / 56%);
+				transform: translateX(-50%) translateZ(2px);
+				pointer-events: none;
+			}
+
+			.flap-inscription span:first-child {
+				font-family: "Cormorant Garamond", serif;
+				font-size: 9px;
+				letter-spacing: 2px;
+				text-transform: uppercase;
+			}
+
+			.flap-inscription span:last-child {
+				font-family: "Caveat", cursive;
+				font-size: 25px;
+				line-height: 1;
+			}
+
+			.flap-inscription::after {
+				width: 44px;
+				height: 1px;
+				background: linear-gradient(90deg, transparent, rgb(234 217 183 / 82%), transparent);
+				content: "";
+			}
+
+			.flap-copy {
+				position: absolute;
+				top: 12%;
+				left: 0;
+				display: grid;
+				width: 100%;
+				gap: 1px;
+				color: #fbf3e7;
+				font-family: "Caveat", cursive;
+				font-size: 23px;
+				line-height: 1;
+				text-align: center;
+				text-shadow: 0 1px 5px rgb(22 11 28 / 48%);
+				transform: translateZ(2px);
+			}
+
+			.flap-copy strong {
+				font-size: 27px;
+				font-weight: 500;
+			}
+
+			.envelope-letter {
+				position: absolute;
+				z-index: 2;
+				bottom: 5%;
+				left: 24%;
+				display: flex;
+				width: 52%;
+				height: 90%;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				gap: 9px;
+				padding: 24px 18px 30px;
+				color: #342737;
+				background:
+					radial-gradient(ellipse at 50% 12%, rgb(255 255 255 / 90%), transparent 58%),
+					repeating-linear-gradient(0deg, transparent 0 25px, rgb(122 88 122 / 5%) 25px 26px),
+					linear-gradient(145deg, #fffdf8, #f3ecdf);
+				clip-path: polygon(3% 2%, 8% 3%, 14% 1.5%, 20% 3%, 27% 1.8%, 34% 3%, 41% 1.7%, 49% 3%, 56% 1.8%, 64% 3%, 71% 1.7%, 79% 3%, 86% 1.6%, 93% 3%, 97% 2%, 96% 9%, 98% 16%, 96% 24%, 98% 32%, 96% 40%, 98% 48%, 96% 56%, 98% 64%, 96% 72%, 98% 80%, 96% 88%, 97% 96%, 91% 97%, 84% 95%, 77% 97%, 69% 95%, 61% 97%, 53% 95%, 45% 97%, 37% 95%, 29% 97%, 21% 95%, 14% 97%, 7% 95%, 3% 97%, 4% 89%, 2% 81%, 4% 73%, 2% 65%, 4% 57%, 2% 49%, 4% 41%, 2% 33%, 4% 25%, 2% 17%, 4% 9%);
+				box-shadow: 0 14px 28px rgb(29 17 31 / 28%), 0 1px 0 #fff inset;
+				font-family: "Cormorant Garamond", serif;
+				text-align: center;
+				transform: translate3d(0, 0, 2px);
+				transition: transform 720ms 110ms cubic-bezier(.18,.75,.22,1), z-index 0s 350ms;
+			}
+
+			.envelope.is-open .envelope-flap { z-index: 1; transform: rotateX(180deg) translateZ(5px); }
+			.envelope.is-open .envelope-letter { z-index: 5; transform: translate3d(0, calc(-1 * var(--letter-lift)), 12px) rotateZ(-1deg); }
+			.envelope.is-open .envelope-stamp { opacity: 0; transform: scale(.8); }
+			.envelope.is-open .postal-mark { opacity: 0; transform: translateZ(6px) rotate(-12deg) scale(.8); }
+
+			.wax-seal {
+				position: absolute;
+				z-index: 11;
+				top: 58%;
+				left: 50%;
+				display: grid;
+				width: 72px;
+				height: 72px;
+				place-items: center;
+				color: #f5dfaa;
+				background:
+					radial-gradient(circle at 30% 23%, rgb(255 244 206 / 62%), transparent 24%),
+					radial-gradient(circle at 48% 42%, #d5b66e 0%, #a67b36 48%, #704e29 78%, #c39b54 100%);
+				border: 2px solid #e6ca82;
+				border-radius: 50%;
+				box-shadow: 0 6px 12px rgb(24 13 27 / 42%), 0 2px 3px rgb(255 249 221 / 78%) inset, 0 -4px 7px rgb(67 43 23 / 38%) inset;
+				filter: drop-shadow(0 5px 4px rgb(35 22 17 / 43%));
+				transform: translate(-50%, -50%) translateZ(18px) rotate(-8deg);
+				transition: opacity 240ms ease, transform 320ms ease;
+			}
+
+			.wax-seal::before {
+				position: absolute;
+				inset: 7px;
+				border: 1px solid rgb(255 235 174 / 78%);
+				border-radius: 50%;
+				box-shadow: 0 0 0 2px rgb(107 75 37 / 42%), 0 0 0 3px rgb(248 222 157 / 46%);
+				content: "";
+				pointer-events: none;
+			}
+
+			.wax-seal::after {
+				position: absolute;
+				inset: 13px;
+				border: 1px solid rgb(255 235 174 / 35%);
+				border-radius: 50%;
+				content: "";
+				pointer-events: none;
+			}
+
+			.wax-mark {
+				position: relative;
+				z-index: 1;
+				font-family: "Cormorant Garamond", serif;
+				font-size: 27px;
+				line-height: 1;
+				text-shadow: 0 1px 1px rgb(74 48 26 / 72%), 0 -1px rgb(255 235 174 / 72%);
+			}
+
+			.envelope.is-open .wax-seal { opacity: 0; transform: translate(-50%, -50%) translateZ(18px) scale(.72) rotate(-8deg); }
+
+			.cover-flourish { color: #806b82; font-family: "Cormorant Garamond", serif; font-size: 17px; letter-spacing: 3px; }
+			.cover-title { max-width: 100%; color: #38283b; font-size: clamp(17px, 2.4vw, 23px); font-weight: 600; line-height: 1.02; text-transform: uppercase; }
+			.cover-script { color: #725d79; font-family: "Caveat", cursive; font-size: clamp(17px, 2.2vw, 22px); }
+			.cover-date { color: #806b82; font-family: "DM Sans", sans-serif; font-size: 7px; font-weight: 600; letter-spacing: 1.4px; text-transform: uppercase; }
+
+			.cover-postmark {
+				position: absolute;
+				right: 10px;
+				bottom: 10px;
+				display: grid;
+				width: 37px;
+				height: 37px;
+				place-items: center;
+				color: #6b5b69;
+				border: 1px solid #7e7180;
+				border-radius: 50%;
+				font-size: 19px;
+				transform: rotate(-12deg);
+			}
+
+			.cover-postmark::before,
+			.cover-postmark::after { position: absolute; top: 16px; left: 27px; width: 23px; height: 5px; background: repeating-linear-gradient(0deg, transparent 0 1px, #786b78 1px 2px); content: ""; }
+			.cover-postmark::after { top: 22px; }
+
+			.cover-pin {
+				position: absolute;
+				z-index: 9;
+				top: -10px;
+				left: calc(50% - 10px);
+				width: 20px;
+				height: 20px;
+				background: radial-gradient(circle at 32% 26%, #fff0bd, #c5a45c 55%, #84652f);
+				border: 1px solid #f5e1a3;
+				border-radius: 50%;
+				box-shadow: 0 3px 6px rgb(44 30 20 / 30%), 0 1px 2px #fff5d5 inset;
+				transform: translateZ(15px);
+				transition: opacity 180ms ease, transform 220ms ease;
+			}
+
+			.envelope.is-open .cover-pin { opacity: 0; transform: translateZ(15px) scale(.65); }
+
+			.envelope-glint {
+				position: absolute;
+				z-index: 8;
+				top: 50%;
+				left: 50%;
+				color: #fff1bd;
+				font-family: "Cormorant Garamond", serif;
+				font-size: 21px;
+				line-height: 1;
+				opacity: 0;
+				filter: drop-shadow(0 0 6px rgb(255 237 176 / 85%));
+				pointer-events: none;
+			}
+
+			.envelope.is-open .envelope-glint { animation: sparkle-burst 950ms var(--sparkle-delay) ease-out both; }
+			.sparkle-one { --sparkle-x: -165px; --sparkle-y: -92px; --sparkle-delay: 20ms; }
+			.sparkle-two { --sparkle-x: 160px; --sparkle-y: -88px; --sparkle-delay: 110ms; }
+			.sparkle-three { --sparkle-x: -178px; --sparkle-y: 68px; --sparkle-delay: 190ms; }
+			.sparkle-four { --sparkle-x: 174px; --sparkle-y: 72px; --sparkle-delay: 80ms; }
+			.sparkle-five { --sparkle-x: 0px; --sparkle-y: -132px; --sparkle-delay: 240ms; }
+
+			.envelope-address {
+				position: absolute;
+				z-index: 4;
+				bottom: 21px;
+				left: 30px;
+				display: grid;
+				gap: 5px;
+				min-width: 154px;
+				padding: 10px 13px 10px 14px;
+				color: #37144f;
+				background: linear-gradient(110deg, #fff8e9 0%, #f4e5cf 100%);
+				border: 1px solid rgb(210 177 112 / 82%);
+				border-left-width: 3px;
+				box-shadow: 0 2px 5px rgb(40 13 57 / 18%), 0 1px 0 rgb(255 255 255 / 85%) inset;
+				font-family: "Cormorant Garamond", serif;
+				font-size: 16px;
+				font-style: italic;
+				line-height: 1;
+				text-align: left;
+				text-shadow: 0 1px rgb(255 255 255 / 78%);
+				transform: translateZ(4px);
+			}
+
+			.envelope-address small {
+				color: #704588;
+				font-family: "DM Sans", sans-serif;
+				font-size: 8px;
+				font-style: normal;
+				letter-spacing: 1.5px;
+			}
+
+			.envelope-address span:last-child {
+				font-family: "Caveat", cursive;
+				font-size: 22px;
+				font-weight: 600;
+			}
+
+			.envelope-flower {
+				position: absolute;
+				z-index: 6;
+				width: 76px;
+				height: 66px;
+				color: #fffaf0;
+				font-family: "Cormorant Garamond", serif;
+				line-height: 1;
+				text-shadow: 0 1px 4px rgb(27 12 35 / 52%);
+				pointer-events: none;
+			}
+
+			.envelope-flower span { position: absolute; }
+			.envelope-flower .bloom-one { top: 0; right: 10px; font-size: 30px; }
+			.envelope-flower .bloom-two { top: 20px; left: 7px; color: #f5e7d8; font-size: 24px; }
+			.envelope-flower .bloom-three { top: 27px; right: 0; color: #f8eee3; font-size: 22px; }
+			.envelope-flower .sprig { bottom: 0; left: 21px; color: #d3b77f; font-size: 39px; opacity: .9; }
+			.floral-top-right { top: 9px; right: 10px; transform: rotate(12deg); }
+			.floral-bottom-left { bottom: 8px; left: 8px; transform: rotate(192deg); }
+
+			.postal-mark {
+				position: absolute;
+				z-index: 4;
+				top: 24px;
+				left: 25px;
+				display: grid;
+				width: 38px;
+				height: 38px;
+				place-items: center;
+				color: #f5eaff;
+				border: 1px solid rgb(255 246 255 / 76%);
+				border-radius: 50%;
+				font-family: "Cormorant Garamond", serif;
+				font-size: 22px;
+				transform: translateZ(6px) rotate(-12deg);
+				transition: opacity 180ms ease, transform 180ms ease;
+			}
+
+			.postal-mark::after {
+				position: absolute;
+				top: 15px;
+				left: 31px;
+				width: 31px;
+				height: 10px;
+				background: repeating-linear-gradient(0deg, transparent 0 2px, rgb(255 246 255 / 70%) 2px 3px);
+				content: "";
+			}
+
+			.envelope-stamp {
+				position: absolute;
+				z-index: 5;
+				top: 17px;
+				right: 20px;
+				display: grid;
+				width: 55px;
+				height: 67px;
+				padding: 4px;
+				grid-template-rows: 1fr auto;
+				place-items: center;
+				color: #795b8b;
+				background: repeating-linear-gradient(135deg, #fbf7fd 0 5px, #e9daef 5px 7px);
+				border: 1px dashed #a88bb9;
+				box-shadow: 0 3px 7px rgb(61 39 74 / 22%), 0 1px 2px #fff inset;
+				transition: opacity 180ms ease, transform 180ms ease;
+			}
+
+			.stamp-art {
+				display: grid;
+				width: 39px;
+				height: 39px;
+				place-items: center;
+				color: #8969a0;
+				background: radial-gradient(circle, #fdfaff 0 48%, #d7c3e3 50% 53%, #f7f0fa 55%);
+				border-radius: 50%;
+				font-size: 23px;
+				text-shadow: 0 1px 0 #fff;
+			}
+
+			.envelope-stamp small {
+				color: #725585;
+				font-family: "DM Sans", sans-serif;
+				font-size: 6px;
+				font-weight: 600;
+				letter-spacing: 1px;
+			}
+
+			.seal {
+				position: absolute;
+				z-index: 5;
+				top: calc(50% - 27px);
+				left: calc(50% - 27px);
+				display: grid;
+				width: 54px;
+				height: 54px;
+				place-items: center;
+				color: #fff;
+				background: radial-gradient(circle at 32% 26%, #ee91fa 0%, #b343db 40%, #6c198e 100%);
+				border: 3px solid #f1d99b;
+				border-radius: 50%;
+				font-size: 25px;
+				text-shadow: 0 1px 1px rgb(49 25 62 / 55%);
+				box-shadow: 0 5px 10px rgb(44 24 57 / 36%), 0 2px 3px rgb(255 255 255 / 42%) inset, 0 -4px 6px rgb(45 26 54 / 27%) inset;
+				transition: opacity 180ms ease, transform 180ms ease;
+				transform: translateZ(8px);
+			}
+
+			.seal::before {
+				position: absolute;
+				inset: 4px;
+				border: 1px solid rgb(255 239 197 / 75%);
+				border-radius: 50%;
+				content: "";
+				pointer-events: none;
+			}
+
+			.seal::after {
+				position: absolute;
+				inset: 9px;
+				border: 1px solid rgb(255 239 197 / 38%);
+				border-radius: 50%;
+				content: "";
+				pointer-events: none;
+			}
+
+			.envelope.is-open .seal { opacity: 0; transform: scale(.7); }
+
+			.footer-note {
+				margin: 20px 0 0;
+				color: #674b79;
+				font-family: "DM Sans", sans-serif;
+				font-size: 10px;
+				font-weight: 600;
+				letter-spacing: 2px;
+				text-align: center;
+				transition: opacity 220ms ease, transform 320ms ease, visibility 0s 220ms;
+			}
+
+			.scene.is-open .footer-note { opacity: 0; visibility: hidden; transform: translateY(8px); }
+
+			.sprig {
+				position: absolute;
+				z-index: 2;
+				color: #a28ab0;
+				font-size: 25px;
+				pointer-events: none;
+				opacity: .65;
+			}
+
+			.sprig-one { top: 160px; left: 35px; transform: rotate(-20deg); }
+			.sprig-two { right: 39px; bottom: 84px; transform: rotate(24deg); }
+
+			@keyframes arrive {
+				from { opacity: 0; transform: translateY(14px); }
+				to { opacity: 1; transform: translateY(0); }
+			}
+
+			@keyframes shimmer {
+				from { opacity: .35; transform: scale(.88); }
+				to { opacity: .9; transform: scale(1.12); }
+			}
+
+			@keyframes sparkle-burst {
+				0% { opacity: 0; transform: translate(-50%, -50%) scale(.25) rotate(0); }
+				22% { opacity: 1; transform: translate(-50%, -50%) scale(1.15) rotate(24deg); }
+				100% { opacity: 0; transform: translate(calc(-50% + var(--sparkle-x)), calc(-50% + var(--sparkle-y))) scale(.45) rotate(78deg); }
+			}
+
+			@media (max-width: 760px) {
+				.scene { padding: 20px 12px 32px; }
+				.letter { padding: 42px 28px 36px; }
+				.letter::before { inset: 8px; }
+				.letter::after { top: 17px; right: 18px; width: 35px; height: 35px; }
+				.letter-layout { grid-template-columns: minmax(0, 1fr) 150px; gap: 20px; }
+				.message { font-size: 18px; line-height: 1.55; }
+				.bouquet { margin-top: 28px; }
+				.bouquet img { height: 220px; }
+				.sprig-one { left: 15px; }
+				.sprig-two { right: 18px; }
+			}
+
+			@media (max-width: 540px) {
+				.scene { padding: 12px 9px 24px; }
+				.letter { padding: 34px 24px 29px; }
+				.envelope-stage { padding: 36px 8px; }
+				.envelope-stage::before, .envelope-stage::after { display: none; }
+				.envelope { width: min(390px, 90vw); --letter-lift: 23vw; }
+				.wax-seal { width: 58px; height: 58px; }
+				.wax-mark { font-size: 23px; }
+				.envelope-tag { top: 39%; right: -14px; width: 66px; height: 96px; gap: 4px; padding: 18px 6px 8px; }
+				.envelope-tag::before { top: -23px; left: 12px; height: 36px; }
+				.flap-inscription { top: 14%; gap: 3px; }
+				.flap-inscription span:first-child { font-size: 7px; letter-spacing: 1.4px; }
+				.flap-inscription span:last-child { font-size: 20px; }
+				.flap-inscription::after { width: 34px; }
+				.tag-name { font-size: 13px; }
+				.tag-label { font-size: 6px; }
+				.tag-flower { font-size: 12px; }
+				.envelope-sprig { font-size: 23px; }
+				.sprig-upper { left: 8px; }
+				.sprig-lower { right: 8px; }
+				.envelope-aura { inset: -10% -2%; }
+				.envelope-flower { width: 58px; height: 50px; }
+				.envelope-flower .bloom-one { font-size: 23px; }
+				.envelope-flower .bloom-two { top: 15px; font-size: 19px; }
+				.envelope-flower .bloom-three { top: 21px; font-size: 17px; }
+				.envelope-flower .sprig { left: 16px; font-size: 30px; }
+				.floral-top-right { top: 7%; right: 3%; }
+				.floral-bottom-left { bottom: 5%; left: 3%; }
+				.sparkle-one { --sparkle-x: -38vw; --sparkle-y: -24vw; }
+				.sparkle-two { --sparkle-x: 38vw; --sparkle-y: -23vw; }
+				.sparkle-three { --sparkle-x: -40vw; --sparkle-y: 20vw; }
+				.sparkle-four { --sparkle-x: 40vw; --sparkle-y: 21vw; }
+				.sparkle-five { --sparkle-x: 0px; --sparkle-y: -37vw; }
+				.envelope-heading { max-width: 290px; font-size: 27px; }
+				.envelope-icon { font-size: 20px; }
+				.flap-copy { font-size: 18px; }
+				.flap-copy strong { font-size: 22px; }
+				.topline { gap: 8px; font-size: 8px; letter-spacing: 1.3px; }
+				.heading { padding: 30px 0 23px; }
+				h1 { font-size: 47px; }
+				.subtitle { font-size: 22px; }
+				.letter-layout { grid-template-columns: 1fr; gap: 5px; }
+				.message { font-size: 19px; }
+				.bouquet {
+					display: grid;
+					grid-template-columns: 102px 1fr;
+					align-items: center;
+					gap: 13px;
+					width: min(100%, 290px);
+					margin: 4px auto 17px;
+					padding: 6px;
+					transform: rotate(1deg);
+				}
+				.bouquet img { height: 104px; }
+				.bouquet figcaption { padding: 0 8px; font-size: 19px; }
+				.date-line { gap: 8px; font-size: 9px; letter-spacing: 1.1px; }
+				.date-line::before, .date-line::after { width: 24px; }
+				.sprig { display: none; }
+			}
+
+			@media (prefers-reduced-motion: reduce) {
+				*, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+				.envelope-glint { display: none; }
+			}
+		</style>
+	</head>
+	<body>
+		<main class="scene">
+			<section class="envelope-stage" aria-label="Sealed monthsary letter">
+				<p class="envelope-heading"><span class="envelope-icon" aria-hidden="true">&#9993;</span>A little something, made just for you</p>
+				<button class="envelope" type="button" aria-label="Open the full letter" aria-expanded="false" aria-controls="love-letter">
+					<span class="envelope-aura" aria-hidden="true"></span>
+					<span class="envelope-letter" aria-hidden="true">
+						<span class="cover-flourish">✦ &nbsp; ♡ &nbsp; ✦</span>
+						<span class="cover-title">Happy Monthsary</span>
+						<span class="cover-script">Open this little love letter</span>
+						<span class="cover-date">CHANG'E ONLY</span>
+						<span class="cover-postmark">♡</span>
+					</span>
+					<span class="envelope-frame" aria-hidden="true"></span>
+					<span class="envelope-flap" aria-hidden="true"><span class="flap-inscription"><span>PREPARED WITH LOVE</span><span>For my dearest</span></span></span>
+					<span class="envelope-sprig sprig-upper" aria-hidden="true">❧</span>
+					<span class="envelope-sprig sprig-lower" aria-hidden="true">❧</span>
+					<span class="envelope-tag" aria-hidden="true"><span class="tag-eyelet"></span><span class="tag-label">FOR MY LOVE</span><span class="tag-name">Melo</span><span class="tag-flower">✿</span></span>
+					<span class="wax-seal" aria-hidden="true"><span class="wax-mark">✿</span></span>
+					<span class="cover-pin" aria-hidden="true"></span>
+					<span class="envelope-glint sparkle-one" aria-hidden="true">✦</span>
+					<span class="envelope-glint sparkle-two" aria-hidden="true">✧</span>
+					<span class="envelope-glint sparkle-three" aria-hidden="true">✧</span>
+					<span class="envelope-glint sparkle-four" aria-hidden="true">✦</span>
+					<span class="envelope-glint sparkle-five" aria-hidden="true">♥</span>
+				</button>
+				<p class="footer-note">CLICK HERE TO OPEN</p>
+			</section>
+
+			<div class="letter-reveal">
+			<article class="letter" id="love-letter" aria-labelledby="letter-title" aria-hidden="true" inert>
+				<span class="sprig sprig-one" aria-hidden="true">❧</span>
+				<span class="sprig sprig-two" aria-hidden="true">❧</span>
+
+				<div class="topline">
+					<span>A little letter, just for you</span>
+					<span>With all my love ✦</span>
+				</div>
+
+				<header class="heading">
+					<p class="eyebrow">To my favorite person</p>
+					<h1 id="letter-title">Happy Monthsary</h1>
+					<p class="subtitle">A small celebration of my favorite us</p>
+					<p class="date-line">[2nd Monthsary]</p>
+				</header>
+
+				<div class="letter-layout">
+					<section class="message" aria-label="Monthsary love letter">
+						<p class="salutation">To my favorite pretty nurse,</p>
+
+						<div class="music-player">
+							<audio id="monthsary-audio" preload="none">
+								<source src="assets/monthsary-song.mp3" type="audio/mpeg">
+							</audio>
+							<button class="music-button" id="music-button" type="button" aria-label="Play It Might Be You instrumental" aria-pressed="false">
+								<span class="music-icon" aria-hidden="true">♫</span>
+								<span id="music-label">Play It</span>
+							</button>
+							<span class="music-status" id="music-status" role="status" aria-live="polite">Instrumental version, just for you</span>
+						</div>
+
+						<p>Happy monthsary to my favorite pretty nurse and the most amazing person I’ve ever met! You filled my empty cup from the very first time we met, and you still make even the smallest moments of my day beautiful. You’re the person who gives me strength, warmth, genuine care, and so much love.</p>
+
+						<p>Thank you for all the love and for sharing so many stories with me. Masaya akong nakikinig sa lahat ng mga kuwento mo, loveey!</p>
+
+						<p>Sobrang blessed ako na ikaw ang kasama ko at ganito kaganda ang relationship natin. I’m so proud of everything you’ve achieved, my hardworking Melo. Lagi mong tandaan na nandito ako para maging pahinga mo at sumuporta sa’yo sa lahat ng bagay.</p>
+
+						<p class="closing-copy">My hope is that what we have keeps becoming stronger, healthier, and happier: a love where we both feel respected, understood, encouraged, and at home. Whatever the next month brings, I want to meet it with you, one honest conversation and one loving choice at a time.</p>
+
+						<p>I’m excited for new places, new stories, more laughter, and all the quiet in-between days we haven't lived yet.</p>
+
+						<p class="promise">I love youuu, loveey! Happy monthsary! 🫶🫶</p>
+					</section>
+
+					<figure class="bouquet">
+						<img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&amp;fit=crop&amp;w=700&amp;q=85" alt="A romantic bouquet of soft pink and purple flowers">
+						<figcaption>A little beauty, for my love</figcaption>
+					</figure>
+				</div>
+
+			</article>
+			</div>
+		</main>
+		<script>
+			const envelope = document.querySelector(".envelope");
+			const scene = document.querySelector(".scene");
+			const letter = document.querySelector("#love-letter");
+			const musicButton = document.querySelector("#music-button");
+			const musicLabel = document.querySelector("#music-label");
+			const musicStatus = document.querySelector("#music-status");
+			const monthsaryAudio = document.querySelector("#monthsary-audio");
+			let playRequestPending = false;
+			let loadingMessageTimer = null;
+			const localFilePreviewMessage = "This preview blocks local audio. Open index.html with VS Code Live Server to play the song.";
+
+			if (window.location.protocol === "file:") {
+				musicStatus.textContent = localFilePreviewMessage;
+			}
+
+			function setMusicButton(isPlaying) {
+				musicButton.setAttribute("aria-pressed", String(isPlaying));
+				musicButton.setAttribute("aria-label", isPlaying ? "Pause It Might Be You instrumental" : "Play It Might Be You instrumental");
+				musicLabel.textContent = isPlaying ? "Pause It Might Be You" : "Play It Might Be You";
+			}
+
+			function clearLoadingMessageTimer() {
+				if (loadingMessageTimer !== null) {
+					window.clearTimeout(loadingMessageTimer);
+					loadingMessageTimer = null;
+				}
+			}
+
+			monthsaryAudio.addEventListener("playing", () => {
+				playRequestPending = false;
+				clearLoadingMessageTimer();
+				setMusicButton(true);
+				musicStatus.textContent = "Playing It Might Be You — instrumental";
+			});
+
+			monthsaryAudio.addEventListener("pause", () => {
+				playRequestPending = false;
+				clearLoadingMessageTimer();
+				setMusicButton(false);
+				musicStatus.textContent = monthsaryAudio.ended
+					? "The song has finished. Play it again anytime."
+					: "Instrumental version, just for you";
+			});
+
+			monthsaryAudio.addEventListener("ended", () => {
+				playRequestPending = false;
+				clearLoadingMessageTimer();
+				setMusicButton(false);
+				musicStatus.textContent = "The song has finished. Play it again anytime.";
+			});
+
+			monthsaryAudio.addEventListener("error", () => {
+				playRequestPending = false;
+				clearLoadingMessageTimer();
+				setMusicButton(false);
+				musicStatus.textContent = "Couldn't load the song. Keep assets/monthsary-song.mp3 beside index.html and open the page with Live Server.";
+				console.error("Could not load the monthsary instrumental.", monthsaryAudio.error);
+			});
+
+			musicButton.addEventListener("click", async () => {
+				if (window.location.protocol === "file:") {
+					musicStatus.textContent = localFilePreviewMessage;
+					return;
+				}
+
+				if (playRequestPending || !monthsaryAudio.paused) {
+					playRequestPending = false;
+					clearLoadingMessageTimer();
+					monthsaryAudio.pause();
+					setMusicButton(false);
+					musicStatus.textContent = "Instrumental version, just for you";
+					return;
+				}
+
+				playRequestPending = true;
+				musicStatus.textContent = "Loading the instrumental...";
+				loadingMessageTimer = window.setTimeout(() => {
+					if (playRequestPending && monthsaryAudio.paused) {
+						musicStatus.textContent = "The song is taking too long to load. Check that assets/monthsary-song.mp3 is beside index.html, then open the page with VS Code Live Server.";
+					}
+				}, 4000);
+
+				try {
+					await monthsaryAudio.play();
+				} catch (error) {
+					if (!playRequestPending) return;
+					playRequestPending = false;
+					clearLoadingMessageTimer();
+					setMusicButton(false);
+					musicStatus.textContent = "Couldn't play the song. Open the page with Live Server and make sure the MP3 is beside index.html in the assets folder.";
+					console.error("Could not play the monthsary instrumental.", error);
+				}
+			});
+
+			envelope.addEventListener("click", () => {
+				const isOpen = envelope.classList.toggle("is-open");
+				scene.classList.toggle("is-open", isOpen);
+				envelope.setAttribute("aria-expanded", String(isOpen));
+				envelope.setAttribute("aria-label", isOpen ? "Close the full letter" : "Open the full letter");
+				letter.setAttribute("aria-hidden", String(!isOpen));
+				if (isOpen) letter.removeAttribute("inert");
+				else {
+					letter.setAttribute("inert", "");
+					monthsaryAudio.pause();
+				}
+			});
+		</script>
+	</body>
+	</html>
+    
